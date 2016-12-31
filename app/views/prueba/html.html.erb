@@ -1,0 +1,259 @@
+<style type="text/css">
+  body {
+    text_align: center;
+  }
+</style>
+
+<div id="container">
+  <div id="header">
+    <h1><a href ="/usuario/usuario" title ="home"><span>Titulo</span></a></h1>
+
+    <h2>Subtítulo</h2>
+  </div>
+  <div id="sidebar">
+      <h3>Sección</h3>
+      <p>Bla bla ...</p>
+  </div>
+  <div id="main">
+  	<style>border:1px solid black</style>
+
+      <h3>Sección</h3>
+      <p>Contenido principal</p>
+      <ul>
+      	<li>Sonata Artica</li>
+      	<li>Nigthwish</li>
+      	<li>HIM</li>
+      </ul>
+  </div>
+  <div id="footer">
+      <p>Pie de página</p>
+  </div>
+</div>
+
+<div id="menu">
+  <ul>
+  	<li><a href="/" title="Home">Home</a></li>
+  	<li><a href="/admin" title="admin">Admin</a></li>
+  	<li><a href="control/quienes" title="quienes">Quienes somos</a></li>
+  	<li><a href="/usuarios/usuarios" title="usuarios">Usuarios</a></li>
+  </ul>
+</div>
+
+<p>Aquí os dejo un fragmento de la canción
+ <cite>Die for Rock 'n' Roll</cite>, de Dover:</p>
+ 
+<blockquote>
+ 	<p>
+ 	Everybody danced (while)<br/>
+ 	I was lying on the floor<br/>
+ 	I was ready to die<br/>
+ 	for Rock 'n' Roll<br/>
+ 	</p>
+</blockquote>
+
+<p>Mi parte preferida es cuando dice lo de
+<q>I was ready to die[...]</q>.</p>
+
+<h2>Los videojuegos</h2>
+<p>Bla bla bla...</p>
+<hr/> <%# Separador horizontal %>
+<h2>Música</h2>
+<p>Bla bla bla...</p>
+
+<h2>Listas</h2>
+<h3>Ordenada</h3>
+<p>Mis escritores favoritos (en orden de preferencia):</p>
+<ol>
+ <li>R. A. Salvatore</li>
+ <li>George R R Martin</li>
+
+ <li>Isabel Allende</li>
+</ol>
+
+<h3>Desordenada</h3>
+<p>El helado perfecto (¡ñam!): </p>
+<ul>
+ <li>1 bola de helado de chocolate </li>
+
+ <li>1 bola de helado de lim&oacute;n </li>
+ <li>Trocitos de pi&ntilde;a y melocot&oacute;n en alm&iacute;bar </li>
+ <li>Sirope de chocolate</li>
+</ul>
+
+<h3>Lista de definicion</h3>
+
+<p>Significado de algunos smileys : </p>
+<dl>
+ <dt>:)</dt>
+ <dd>Sonrisa</dd>
+ <dt>xD</dt>
+ <dd>Carcajada</dd>
+
+ <dt>:P</dt>
+ <dd>Sacar la lengua</dd>
+</dl>
+
+<h3>Anidadas</h3>
+
+<p>Algunos libros de Salvatore :</p>
+<ul>
+  <li>I Trilogía de El Elfo Oscuro
+   <ol>
+
+     <li>La Morada</li>
+     <li>El Exilio</li>
+     <li>El Refugio</li>
+   </ol>
+  </li>
+  <li>Trilogía de El Valle del Viento Helado
+   <ol>
+
+     <li>La Piedra de Cristal</li>
+     <li>Ríos de Plata</li>
+     <li>La Gema del Halfling</li>
+   </ol>
+  </li>
+</ul>
+
+<h2>Imagenes</h2>
+<img src="../app/assets/images/matrix.png" width="100" heigth="200" alt="index"/>
+
+<%= image_tag("matrix.png", :size =>"200x100")%>
+
+<h3>Imagen como link</h3>
+<a href="http://art.ladybenko.net" title ="Mi portafolio">
+<%= image_tag("matrix_thumb.png")%>
+</a>
+
+<p>Otra imagen</p>
+<a href="matrix.jpg" title="Wallpaper">
+  <img src="matrix_thumb.png" width="100" height="80" alt="Wallpaper de Matrix" />
+</a>
+
+<h2>Tablas</h2>
+<table border="1" cellpadding="10"
+ cellspacing="30">
+  <caption>Videojuegos</caption>
+  <tr>
+    <th>Título</th>
+    <th colspan ="2">Género</th>
+  </tr>
+  <tr>
+    <td>Sonic</td>
+
+    <td>Plataformas</td>
+    <td>Simulación </td>
+  </tr>
+</table>
+
+<p>Con rowspan</p>
+<table border = "1"> 
+    <tr>
+        <th>Título</th>
+        <td>Sim City</td>
+    </tr>
+    <tr>
+        <th rowspan ="2">Géneros</th>
+        <td>Simulación</td>
+    </tr>
+    <tr>
+        <td>Estrategia</td>
+    </tr>
+</table>
+
+// Formularios: Etiquetar campos
+
+<p>
+
+    <label for="nombre">
+        Nombre :
+    </label>
+    <br />
+    <input type="text" name="nombre" id="nombre" />
+</p>
+
+<p>
+  <label for="pass">
+        Contraseña :
+  </label>
+    <br />
+  <input type="password" name="contra" id="pass" />
+</p>
+
+<p>
+  <label for="comentario">
+      ¿Algún comentario?
+  </label>
+
+  <br />
+  <textarea name="coment" id="comentario" cols="30" rows="5">Valor por defecto
+  </textarea>
+</p>
+
+<h3>Casillas de confirmacion</h3>
+
+<p>
+  Has jugado a ...
+  <br />
+
+  <input type="checkbox" name="monkey1" id="monkey1" value="si" checked="checked" />
+
+  <label for="monkey1">
+      Monkey Island I
+  </label>
+  
+  <input type="checkbox" name="xwing" id="xwing" value="si" />
+
+  <label for="xwing">
+      X- Wing Alliance
+  </label>  
+</p>
+<p>Radio Buttons</p>
+<p>
+  Peli preferida :
+  <br />
+
+  <input type="radio" name="peli" id="sw_hope" value="hope" checked="checked" />
+
+  <label for="sw_hope">
+      A New Hope
+  </label>
+  
+  <input type="radio" name="peli" id="sw_empire" value="empire" />
+
+  <label for="sw_empire">
+      The Empire Strikes Back
+  </label>
+  
+  <input type="radio" name="peli" id="sw_jedi" value="jedi" />
+
+  <label for="sw_jedi">
+      The Return of the Jedi
+  </label>
+</p>
+
+<p>Listas de seleccion</p>
+
+<p>
+    <label for="peli">
+        Película preferida :
+    </label>
+    <br />
+    <select name="peli" id="peli">
+
+        <option value="hope">
+            A New Hope
+        </option>
+        <option value="empire">
+            The Empire Strikes Back
+        </option>
+        <option value="jedi" selected="selected">
+
+            The Return of the Jedi
+        </option>
+    </select>
+</p>
+
+<input type="submit" value="Enviar" />
+
+<input type="reset" value="Borrar" />

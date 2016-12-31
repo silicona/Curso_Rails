@@ -1,0 +1,43 @@
+<h1>Imagenes y videos</h1>
+<ul>
+	<h3>Etiquetas ruby de imagen</h3>
+	<li>:image_alt = Proporciona un string para la etiqueta :alt desde el nombre del archivo de imagen</li>
+	<li>:image_tag = Devuelve una etiqueta HTML para la imagen.</li>
+</ul>
+<ul>
+  <p>Etiquetas de image_tag:</p>
+	<li>:alt = Nombre de imagen</li>
+	<li>:class = Clase de estilo</li>
+	<li>:width = Ancho de la imagen</li>
+	<li>:heigth = Altura de imagen</li>
+	<li>data:{title: "Titulo"} = Añade la etiqueta titulo</li>
+</ul>
+
+<h3>Etiquetas de video_tag:</h3>
+<ol>
+  <li>[v1, v2, v3] = Opciones de video, generalmente formatos</li>
+  <li>:poster = Imagen del video antes de iniciarlo</li>
+  <li>:controls => true = Muestra los controles de reproduccion.</li>
+  <li>:autobuffer => true = Carga el video desde la carga de la pagina</li>
+  <li>:size => AnchoxAlto</li>
+  <li>autoplay: true = Reproduccion automatica al cargar pagina</li>
+</ol>
+
+<%= image_tag("leche.jpeg", :alt => "leche casera", :width => "250", :heigth => "150", :class => "estilos") %>
+<p>Imagen con def mostrar_imagen en application_helper.rb</p>
+<%= mostrar_imagen "leche.jpeg", "150x100", "leche casera" %>
+<section style = "display: block;">
+<hr size = "8px" color = "black"/>
+<h2>Audios y Videos desde public/videos y public/audios por defecto</h2>
+
+<%= render :partial => 'prueba/imagenes_defecto' %>
+</section>
+<span style= "clear: both;"></span>
+
+<section style = "display: block; float:left">
+<hr size = "2px" color = "black" style = "display: block; float:top;"/><!--No sale este hr-->
+
+<h2 style = "display: block;">Audios y Videos desde assets/videos y assets/audios</h2>	
+
+<%= render :partial => 'prueba/imagenes_assets' %>
+</section>

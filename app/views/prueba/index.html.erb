@@ -1,0 +1,40 @@
+<h1>Bienvenida</h1>
+<p>Página de prueba en app/views/prueba/index.html.erb</p>
+
+<%= 'Vistas de Prueba' %>
+
+<%# Link utiliza metodo get%>
+<%= enlazar("Linkto", 'linkto') %>
+<%= enlazar("Edit", 'edit') %>
+<%= enlace("Imagenes y videos", "/prueba/imagen") %>
+<%= link_to "Sin vista", :action => 'sinvista', :id => 'pingüino' %>
+<%= link_to "Linkto", :action => 'linkto' %>
+
+<%# Button utiliza metodo post %>
+<%= button_to 'Nociones HTML', "/html" %>
+
+<% for i in 1..5 %>
+<p>Hola, cochino mundo con for, numero: <%= i%></p>
+<% end %>
+
+suma 2 + 5 = <%= 2 + 5 %>
+
+<% t = Time.now %>
+
+mes: <%= t.mon%>
+dia: <%= t.day%>
+
+<p>Con variables de instancia:</p>
+
+<%= @mes %>:<%= @dia %>
+
+<p>
+  Aqui los datos de un usuario de la DB: <%= @usuario.nombre %>	
+</p>
+
+<%# con if se evita que aparezca este Bienvenido si no hay usuario%>
+<% if !@nombre_usuario.nil? %>
+   <p>Bienvenido por url determinada en route.rb: <%= @nombre_usuario %></p>
+<% else %>
+  <p>No hay esta bienvenida sin nombre de usuario en url</p>
+<%end%> 

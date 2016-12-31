@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CursoRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <h1>Tercera Plantilla de Vista exclusiva </h1>
+  <h2>Solo para Quienes somos</h2>
+
+  <%= enlace "Formularios Index", 'index' %>
+  <%= link_to "Prueba Inicio", {:controller => 'prueba', :action => 'index'} %>
+   
+  
+    <%= yield %>
+  </body>
+</html>

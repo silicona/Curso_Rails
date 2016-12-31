@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CursoRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>Plantilla de vista exclusiva del controlador Funcionarios</h1>
+    <h2>Para todos los metodos del controlador, menos los de layouts</h2>
+
+    <%= enlace "Formularios Index", 'index' %>
+    <%= enlace "Prueba Inicio", {:controller => 'prueba', :action => 'index'} %>
+
+    <%= menu_navegacion ({"Inicio" => "index", "Mails" => 'mails', "Servicios" => "servicios", "Contacto" => "contacto", "Localizacion" => "localizacion"}) %>
+
+    <%= abotonar("Prueba Inicio", {:controller => 'prueba', :action => 'index'}, 'get') %> 
+
+    <%= yield %>
+  </body>
+</html>

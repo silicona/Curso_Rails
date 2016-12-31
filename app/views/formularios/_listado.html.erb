@@ -1,0 +1,11 @@
+<p><tt>Abotonado con $arr</tt> con tag t</p>
+<% $arr.each do |nombre| %>
+	<%= nombre %>
+<%= button_to "Eliminar con $arr", :action => "servicios", :id => nombre %>
+<% end %> 
+
+<p><i>Abotonado con Inicial</i> con tag i</p>
+<% Inicial.mirar.each do |nombre| %>
+	<%= nombre.capitalize %>
+<%= button_to "Eliminar con Inicial", :action => "servicios", :id => nombre %>
+<% end %>  

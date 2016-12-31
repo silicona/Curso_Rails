@@ -1,0 +1,70 @@
+ <h1>Vista de Linkto</h1>
+
+<h2>Atributos de link_to</h2>
+
+<p>La direccion URL va entre {}</p>
+<p>:id = parametro por defecto. Si la id manda un parametro al controlador, se encierra en la direccion</p>
+<p>:name = nombre del enlace</p>
+<p>:title = titulo del enlace, sale al poner el puntero sobre el.</p>
+<p>:class = etiqueta de css</p>
+<p>:method = Metodo HTTP del enlace como simbolo (GET, POST, PUT/PATCH, DELETE)</p>
+
+<ul>
+	<li>GET - Obtiene del servidor.</li>
+	<li>POST - Envia datos al servidor.</li>
+	<li>PUT/PATCH - Actualiza el servidor.</li>
+	<li>DELETE - Borra del servidor</li>
+</ul>
+
+<p>data: {confirm: "Frase de confirmacion"} = Pide confirmacion, generalmente para borrar.</p>
+<p>:remote => true = Para peticiones AJAX</p>
+
+<p>Enlaces en la pagina a otras paginas</p>
+
+<%= link_to 'Atras', :back %>|
+<%= link_to 'Casa', :root %>|
+
+<%# link_to_unless_current evita que se pueda pinchar el enlace de la pagina en la que estamos, esto es, el link de Alemania en la pagina Alemania%>
+<%= link_to_unless_current 'index', :controller => 'prueba', :action => 'index' %>|
+<%= link_to_unless_current 'Alemania', :controller => 'prueba', :action => 'alemania' %>|
+
+<%# Sin poner el controlador, va al controlador de la Vista %>
+<%= link_to_unless_current 'Japon', :action => 'japon' %>|
+<%= link_to_unless_current 'Usuario/index', :controller => 'usuario', :action => 'index' %>
+
+<p>Enlace a una vista sin controlador<p>
+<%= enlace("Imagenes y videos", "/prueba/imagen") %>
+
+
+<h3>Desde ActionViewer</h3>
+<p>Ver en fuente de pagina web</p>
+
+<%= link_to "Japon", :controller => "prueba", :action => "japon" %>
+<br>
+<%= link_to "Japon sin control", :action => "japon" %>
+<br>
+<%= link_to "japon con 1 POST", {:action => "japon", :id => 1},\
+:title=> "Nombre", :method => "post", :class => "prueba", :name => "nombre" %>
+<br>
+<%= link_to "Japon delele 1", {:action => "japon", :id => 1},\
+:title=> "Nombre", :method => "delete", data: { :confirm => "Estas segura?"} %>
+<br>
+<%= link_to "Web Diario Sur", "http://www.sur.es",\
+:title=> "Nombre", data: {:confirm => "Estas segura?"} %>
+<hr>
+<p>etiqueta :remote para tratar solicitudes AJAX</p>
+<%= link_to "Contacto Ajax", {:action => "japon", :id => 1}, :method => :put, :remote => true, data: { :confirm => "Estas segura?" }%>
+<hr>
+<p>links verdadero y falso: Se activan con true</p>
+<%= link_to_if(true, "Japon", :action => "japon") %>
+<%= link_to_if(false, "Japon", :action => "japon") %>
+<br>
+<p>links activadores V/F</p>
+<%= link_to_if(true, "Japon", :action => "japon") do
+	link_to "Diario Sur", "http://www.sur.es",\
+:title=> "Nombre", data: {:confirm => "Estas segura?"} 
+end %>
+<%= link_to_unless(true, "Diario Surito", :action => "japon") do
+	link_to "Sur", "http://www.sur.es",\
+:title=> "Nombre", data: {:confirm => "Estas segura?"} 
+end %>

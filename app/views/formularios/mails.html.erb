@@ -1,0 +1,50 @@
+
+<h1><%= @titulo %></h1>
+
+<h2>Etiquetas de mail_to</h2>
+<ol>
+	<li>cc: "x@x" = Copia de mail</li>
+	<li>:cco => "x@x" = Copia oculta del mail</li>
+	<li>subject: "Xxxxx" = Asunto del mail</li>
+	<li>:body => "Xxxxx" = Texto del mail</li>
+</ol>
+<h2>Mails</h2>
+<%= mail_to("prueba@prueba.com") %>
+<br>
+<%= mail_to("prueba@prueba.com", "mi contacto") %>
+<br>
+<%= mail_to("probeta@probeta.com", nil, {:replace_at=>"_arrabo_", :replace_dot=>"_punto"}) %> <%#No cambia el link%>
+<br>
+<%= mail_to("probeta@probeta.com", "mail total", :subject => "Asunto", :cc => "prueba2@prueba2.com", :bcc => "correo@oculto.com", :body => "Este es un mail de prueba.") %>
+<br>
+<%= mail_to "probeta@probeta.com" do %>
+  <strong>Escríbeme:</strong> <span>probeta@probeta.com</span>
+<% end %>
+<br>
+<h2>Botones</h2>
+
+<%= button_to "Enviar id:'10' a #contacto", {:controller => "formularios", :action => "contacto", :id => "10"}, :class => "clasedeestilo" %>
+
+<h3>flashes</h3>
+<%= flash[:noticia] %><br>
+<%= flash[:edad] %><br>
+
+<h4>Boton a Servicios</h4>
+<p><ins>Elimina cada nombre enviado a servicios</ins> con tag ins</p>
+<br>
+<% $arr.each do |nombre| %>
+	<%= nombre.capitalize %>
+  <%= button_to "Enviar a #servicios", :action => "servicios", :id => nombre %>
+<% end %>
+
+<h4>Boton a #servicios con _listado.html.erb y vuelta a #mails</h4>
+<p><big>Elimina cada nombre enviado a servicios</big> con tag big</p>
+<p><em>Igual que el anterior</em> con tag em</p>
+
+<%= render :partial => "listado" %>
+
+
+
+
+
+

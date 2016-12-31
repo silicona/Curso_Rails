@@ -1,0 +1,16 @@
+<h1><%= @titulo %></h1>
+<br>
+<% 100.times do |num| %>
+<% next if num % 2 == 0 %>
+<%= num %>
+<% end %>
+
+<% 10.downto(1) do |num| %>
+	<%= num %>
+	<% end %>
+<br>
+url: <%= @url %><br>
+dominio: <%= @dominio %><br>
+ip: <%= @ip %><br>
+
+<%= link_to "Prueba", :action => "quienes_somos" %>

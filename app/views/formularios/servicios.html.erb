@@ -1,0 +1,17 @@
+<h1>Vista de <%= @titulo %></h1>
+
+<br>
+Variable de request.request_method para saber el metodo HTTP usado: <br>
+<%= @informacion %>
+<br>
+<div>
+	<% if flash[:noticia] %>
+	<p><%= flash[:noticia] %></p>
+	<% end %> 
+</div>
+
+<br>
+<% $arr.each do |nombre| %>
+	<%= nombre %>
+  <%= button_to "Enviar", :action => "servicios", :id => nombre %>
+<% end %>

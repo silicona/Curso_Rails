@@ -1,0 +1,23 @@
+
+<h2>Usando metodo POST </h2>
+
+<%= form_tag("/formularios/localizacion") do %>
+  <%= label_tag :nombre %>
+  <%= text_field_tag :nombre, "valor" , :maxlength => 15, :size => 20, :placeholder => 'Añada nombre' %><br>
+  <%= label_tag "botones radiales, uno del grupo (radio button, con mismo nombre/key)." %><br>
+  <%= radio_button_tag(:edad, "peque", true) %>
+  <%= label_tag "edad", "Soy menor" %>
+  <%= radio_button_tag(:edad, "adulto") %>
+  <%= label_tag("adulto", "Soy mayor") %>  
+  <br>
+  <%= submit_tag "Añadir con Inicial" %>
+<% end %>
+<hr>
+<H2>Usando metodo GET</H2>
+
+<%= form_tag("localizacion", method: :get) do %>
+	<%= label_tag :nombre %>
+  <%= text_field_tag :nombre, nil, :maxlength => 15, :size => 20, :placeholder => 'Introduzca busqueda' %><br>
+  <%= submit_tag "Buscar con Inicial" %>
+<% end %>
+

@@ -1,0 +1,10 @@
+Vista de <%= @titulo %>
+<br>
+Variable de request.request_method para saber el metodo HTTP usado: <br>
+<%= @informacion %>
+<br>
+<div>
+	<% if flash[:noticia] %>
+	<p><%= flash[:noticia] %></p>
+	<% end %> 
+</div>

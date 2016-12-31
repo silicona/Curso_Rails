@@ -1,0 +1,18 @@
+<h1>Formularios#localizacion</h1>
+<h2><%= @titulo %></h2>
+
+<%= image_tag("leche.jpeg", :alt => "leche casera", :width => "250", :heigth => "150") %>
+<p>Imagen con def mostrar_imagen en application_helper.rb</p>
+<%= mostrar_imagen "leche.jpeg", "150x100", "leche casera" %>
+
+<p>Videos</p>
+<p>ogv</p>
+<%= video_tag("small.ogv", :controls => true) %>
+<p>mp4</p>
+<%= video_tag("SampleVideo_1280x720_5mb.mp4", :controls => true) %>
+<p>flv</p>
+<%= video_tag("SampleVideo_1280x720_2mb.flv", :controls => true) %>
+<p>3gp</p>
+<%= video_tag("SampleVideo_320x240_2mb.3gp", :controls => true) %>
+<p>avi</p>
+<%= video_tag("drop.avi", :controls => true) %>

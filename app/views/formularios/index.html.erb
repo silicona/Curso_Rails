@@ -1,0 +1,95 @@
+<h1>Formularios#index</h1>
+<h2>Etiquetas de campos form_tag, incluido label_tab</h2>
+<ul>
+  <li>"valor" = Como segundo parametro, pone un valor por defecto en el campo</li>
+  <li>size: "15" = numero de caracteres visibles en el campo. Es mayor que :maxlength, para que el campo no quede corto.</li>
+  <li>:maxlength => "10" = maximo numero de caracteres en el campo.</li>
+  <li>:placeholder => "texto" = Texto en casilla hasta que sea marcada para escribir</li>
+  <li>:class => "texto" = Clase de estilo para el campo</li>
+  <li>Mas etiquetas en <%= enlace("API ruby on Rails", "http://api.rubyonrails.org/files/actionview/lib/action_view/helpers/form_tag_helper_rb.html") %></li>
+</ul>
+
+<%= flash[:mensaje] %>
+
+<h2>form_tag Añadir(HTTP POST) hacia #localizacion con vuelta a #mails</h2>
+<h3>Realizado desde parcial "_anadir" en views/formularios hacia #localizacion.</h3>
+
+<%= render :partial => 'anadir' %>
+
+<h2>Listado de usuarios</h2>
+<table border = "1">
+  <% Inicial.mirar.each do |usuario| %>
+  <tr>
+    <td><%= usuario.capitalize %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h2>file_tag Guarda en archivo (HTTP POST) hacia contacto</h2>
+
+<%= form_tag("/formularios/contacto", :multipart => true) do %>
+  <%= file_field_tag "archivo" %>
+
+  <%= submit_tag "Enviar" %>
+<% end %>
+
+<% if flash[:mensaje] %>
+<%= flash[:mensaje] %>
+<% end %>
+
+<h2>form_tag Buscar(HTTP GET) hacia contacto</h2>
+
+<%= form_tag("/formularios/contacto", :method => :get) do %>
+  <%# Nombre %>
+  <%= label_tag "nombre" %>
+  <%= text_field_tag :nombre %><br>
+
+  <%# Numeros %>
+  <%= label_tag 'numeros' %>
+  <%= number_field_tag("numeros", nil, :in => 1..10) %><br>
+
+  <%# Rango %>
+  <%= label_tag :rango %>
+  <%= range_field_tag(:rango, :min => 0, :max => 20) %><br>
+
+  <%# Busqueda %>
+  <%= label_tag "busqueda" %>
+  <%= search_field_tag "busqueda",nil, :placeholder => "Buscar" %><br>
+
+  <%# Telefono %>
+  <%= label_tag 'telefono' %>
+  <%= phone_field_tag "telefono", nil %><br>
+
+  <%# Email %>
+  <%= label_tag 'email' %>
+  <%= email_field_tag "email", nil, :placeholder => 'pon el email.' %><br>
+
+  <%# Contraseña %>
+  <%= label_tag 'contraseña' %>
+  <%= password_field_tag 'contraseña', nil, :placeholder => 'pon contra' %><br>
+
+  <p>Check-box, diferente de radio-buttons</p>
+  <%= check_box_tag(:fumador, "si", true) %>
+  <%= label_tag(:fumador, "Fumador (envia 'si' o 0)") %>
+  <br>
+
+  <%= check_box_tag(:casado) %>
+  <%= label_tag(:casado, "Casado (envia 1 o 0)") %>
+  <br>
+
+  <p>Etiqueta select con "titulo" interno (:prompt)</p>
+  <%= select_tag "color", "<option>Rojo</option><option>Amarillo</option><option>Azul</option><option>Negro</option>".html_safe, :prompt => "Escoge" %>
+  <br>
+
+  <p>Etiqueta select con elecciones multiples</p>
+  <%= select_tag "colores", "<option>Rojo</option><option>Amarillo</option><option>Azul</option><option>Negro</option>".html_safe, :multiple => true %>
+  <br>
+
+  <%= submit_tag "Enviar" %>
+<% end %>
+
+<h3 id="aviso">El atributo .html_safe permite ejecutar etiquetas HTML dentro de codigo ruby:</h3>
+<ul>
+  <li><%= "<b>Hola</b>" %></li>
+  <li><%= "<b>Hola</b>".html_safe %></li>
+</ul>

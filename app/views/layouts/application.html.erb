@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Curso <%= @titulo %> </title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <%= link_to_unless_current 'Atras', :back %>|
+    <%= link_to_unless_current 'Casa', :root %>|
+    <%= link_to_unless_current 'Formularios', :controller => 'formularios', :action => 'index' %> |
+    <%= link_to_unless_current 'Usuario', :controller => 'usuario', :action => 'index' %> |
+
+    <%# Ejemplo sin unless_current y alias (desde routes.rb)%>
+    <%= link_to 'Ir a Alemania', alemania_url %>|
+    <br>
+    <h2>Peticiones efectuadas</h2>
+    <h3><%= @peticiones %></h3>
+    <h3><%= @cooki %></h3>
+    <%= yield %>
+  </body>
+</html>

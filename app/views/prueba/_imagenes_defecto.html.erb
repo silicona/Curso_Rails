@@ -1,0 +1,10 @@
+<p style = "float: left">Audio<br>
+<%= audio_tag("BeepTestAudio", :controls => true) %></p>
+<p style = "float: left">ogv<br>
+<%= video_tag("small.ogv", :controls => true, size: '300x200') %></p>
+<p style = "float: left">mp4<br>
+<%= video_tag("SampleVideo_1280x720_5mb.mp4", :controls => true, size: '300x150') %></p>
+<p style = "float: left">flv<br>
+<%= video_tag("SampleVideo_1280x720_2mb.flv", :controls => true) %></p>
+<p style = "float: left">3gp y avi<br>
+<%= video_tag(["SampleVideo_320x240_2mb.3gp", "drop.avi"], :controls => true) %></p>
